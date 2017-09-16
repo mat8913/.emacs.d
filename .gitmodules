@@ -1,3 +1,30 @@
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
+[submodule "solarized"]
+	path = lib/solarized
+	url = https://github.com/bbatsov/solarized-emacs
+[submodule "dash"]
+	path = lib/dash
+	url = https://github.com/magnars/dash.el
+[submodule "evil"]
+	path = lib/evil
+	url = https://github.com/emacs-evil/evil
+[submodule "undo-tree"]
+	path = lib/undo-tree
+	url = https://github.com/emacsmirror/undo-tree
+[submodule "with-editor"]
+	path = lib/with-editor
+	url = https://github.com/magit/with-editor
+[submodule "magit"]
+	path = lib/magit
+	url = https://github.com/magit/magit
+[submodule "evil-magit"]
+	path = lib/evil-magit
+	url = https://github.com/emacs-evil/evil-magit
+[submodule "linum-relative"]
+	path = lib/linum-relative
+	url = https://github.com/coldnew/linum-relative
+[submodule "goto-chg"]
+	path = lib/goto-chg
+	url = https://github.com/emacsmirror/goto-chg
