@@ -28,3 +28,9 @@
 [submodule "goto-chg"]
 	path = lib/goto-chg
 	url = https://github.com/emacsmirror/goto-chg
+[submodule "powerline"]
+	path = lib/powerline
+	url = https://github.com/milkypostman/powerline
+[submodule "powerline-evil"]
+	path = lib/powerline-evil
+	url = https://github.com/raugturi/powerline-evil
