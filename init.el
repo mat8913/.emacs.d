@@ -149,3 +149,8 @@
 (setq powerline-default-separator (if (display-graphic-p) 'arrow
                                     nil))
 (air--powerline-default-theme)
+
+; C mode
+(add-hook 'c-mode-hook (lambda ()
+    (c-set-style "linux")
+))
