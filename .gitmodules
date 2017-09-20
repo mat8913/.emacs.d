@@ -36,7 +36,7 @@
 	ignore = untracked
 [submodule "goto-chg"]
 	path = lib/goto-chg
-	url = https://github.com/emacsmirror/goto-chg
+	url = https://github.com/emacs-evil/goto-chg
 	ignore = untracked
 [submodule "powerline"]
 	path = lib/powerline
