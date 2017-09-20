@@ -1,51 +1,68 @@
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
+	ignore = untracked
 [submodule "solarized"]
 	path = lib/solarized
 	url = https://github.com/bbatsov/solarized-emacs
+	ignore = untracked
 [submodule "dash"]
 	path = lib/dash
 	url = https://github.com/magnars/dash.el
+	ignore = untracked
 [submodule "evil"]
 	path = lib/evil
 	url = https://github.com/emacs-evil/evil
+	ignore = untracked
 [submodule "undo-tree"]
 	path = lib/undo-tree
 	url = https://github.com/emacsmirror/undo-tree
+	ignore = untracked
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = https://github.com/magit/with-editor
+	ignore = untracked
 [submodule "magit"]
 	path = lib/magit
 	url = https://github.com/magit/magit
+	ignore = untracked
 [submodule "evil-magit"]
 	path = lib/evil-magit
 	url = https://github.com/emacs-evil/evil-magit
+	ignore = untracked
 [submodule "linum-relative"]
 	path = lib/linum-relative
 	url = https://github.com/coldnew/linum-relative
+	ignore = untracked
 [submodule "goto-chg"]
 	path = lib/goto-chg
 	url = https://github.com/emacsmirror/goto-chg
+	ignore = untracked
 [submodule "powerline"]
 	path = lib/powerline
 	url = https://github.com/milkypostman/powerline
+	ignore = untracked
 [submodule "powerline-evil"]
 	path = lib/powerline-evil
 	url = https://github.com/raugturi/powerline-evil
+	ignore = untracked
 [submodule "intero"]
 	path = bin/intero
 	url = https://github.com/commercialhaskell/intero
+	ignore = untracked
 [submodule "haskell-mode"]
 	path = lib/haskell-mode
 	url = https://github.com/haskell/haskell-mode
+	ignore = untracked
 [submodule "flycheck"]
 	path = lib/flycheck
 	url = https://github.com/flycheck/flycheck
+	ignore = untracked
 [submodule "seq"]
 	path = lib/seq
 	url = https://github.com/emacsmirror/seq
+	ignore = untracked
 [submodule "company-mode"]
 	path = lib/company-mode
 	url = https://github.com/company-mode/company-mode
+	ignore = untracked
