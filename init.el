@@ -161,3 +161,6 @@
 (add-hook 'c-mode-hook (lambda ()
     (c-set-style "linux")
 ))
+
+; Haskell mode
+(add-hook 'haskell-mode-hook 'intero-mode)

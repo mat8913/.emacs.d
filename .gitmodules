@@ -34,3 +34,18 @@
 [submodule "powerline-evil"]
 	path = lib/powerline-evil
 	url = https://github.com/raugturi/powerline-evil
+[submodule "intero"]
+	path = bin/intero
+	url = https://github.com/commercialhaskell/intero
+[submodule "haskell-mode"]
+	path = lib/haskell-mode
+	url = https://github.com/haskell/haskell-mode
+[submodule "flycheck"]
+	path = lib/flycheck
+	url = https://github.com/flycheck/flycheck
+[submodule "seq"]
+	path = lib/seq
+	url = https://github.com/emacsmirror/seq
+[submodule "company-mode"]
+	path = lib/company-mode
+	url = https://github.com/company-mode/company-mode
