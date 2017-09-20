@@ -41,6 +41,13 @@
 (linum-relative-global-mode)
 (setq linum-relative-current-symbol "")
 
+(defadvice linum-update-window (around linum-dynamic activate)
+  (let* ((w (length (number-to-string
+                     (count-lines (point-min) (point-max)))))
+         (linum-format (concat " %" (number-to-string w) "d ")))
+    ad-do-it))
+(set-face-attribute 'linum nil :background "#073642" :weight 'normal)
+
 ; Whitespace
 (setq whitespace-display-mappings nil)
 
