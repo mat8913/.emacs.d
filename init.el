@@ -164,3 +164,11 @@
 
 ; Haskell mode
 (add-hook 'haskell-mode-hook 'intero-mode)
+(add-hook 'haskell-mode-hook (lambda ()
+    (define-key haskell-mode-map (kbd "<backtab>") nil)
+))
+
+; Company mode
+(add-hook 'company-mode-hook (lambda ()
+    (define-key company-mode-map (kbd "<backtab>") 'company-complete)
+))
