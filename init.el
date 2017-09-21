@@ -44,7 +44,7 @@
 (defadvice linum-update-window (around linum-dynamic activate)
   (let* ((w (length (number-to-string
                      (count-lines (point-min) (point-max)))))
-         (linum-format (concat " %" (number-to-string w) "d ")))
+         (linum-relative-format (concat " %" (number-to-string w) "s ")))
     ad-do-it))
 (set-face-attribute 'linum nil :background "#073642" :weight 'normal)
 
