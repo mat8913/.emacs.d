@@ -66,3 +66,7 @@
 	path = lib/company-mode
 	url = https://github.com/company-mode/company-mode
 	ignore = untracked
+[submodule "kakapo-mode"]
+	path = lib/kakapo-mode
+	url = https://github.com/mat8913/kakapo-mode
+	ignore = untracked

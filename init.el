@@ -164,8 +164,21 @@
 
 ; Haskell mode
 (add-hook 'haskell-mode-hook 'intero-mode)
+(add-hook 'haskell-mode-hook 'kakapo-mode)
 (add-hook 'haskell-mode-hook (lambda ()
     (define-key haskell-mode-map (kbd "<backtab>") nil)
+    (setq-local indent-tabs-mode nil)
+    (setq-local tab-width 4)
+    (setq-local evil-shift-width 4)
+))
+
+; Kakapo mode
+(add-hook 'kakapo-mode-hook (lambda ()
+    (define-key evil-normal-state-map "o" (lambda () (interactive) (kakapo-open nil)))
+    (define-key evil-normal-state-map "O" (lambda () (interactive) (kakapo-open t)))
+    (define-key evil-insert-state-map (kbd "RET") 'kakapo-ret-and-indent)
+    (define-key evil-insert-state-map (kbd "DEL") 'kakapo-backspace)
+    (define-key evil-insert-state-map (kbd "<S-backspace>") 'kakapo-upline)
 ))
 
 ; Company mode
