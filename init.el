@@ -173,18 +173,6 @@
     (c-set-style "linux")
 ))
 
-; Haskell mode
-(use-package haskell-mode
-  :bind (:map haskell-mode-map
-         ("<backtab>" . nil))
-  :config
-  (add-hook 'haskell-mode-hook #'intero-mode)
-  (add-hook 'haskell-mode-hook 'kakapo-mode)
-  (add-hook 'haskell-mode-hook (lambda ()
-      (setq-local indent-tabs-mode nil)
-      (setq-local tab-width 4)
-      (setq-local evil-shift-width 4))))
-
 ; Kakapo mode
 (use-package kakapo-mode
   :commands kakapo-open
@@ -195,6 +183,19 @@
       (define-key evil-insert-state-local-map (kbd "RET") 'kakapo-ret-and-indent)
       (define-key evil-insert-state-local-map (kbd "DEL") 'kakapo-backspace)
       (define-key evil-insert-state-local-map (kbd "<S-backspace>") 'kakapo-upline))))
+
+; Haskell mode
+(use-package haskell-mode
+  :bind (:map haskell-mode-map
+         ("<backtab>" . nil))
+  :config
+  (add-hook 'haskell-mode-hook #'intero-mode)
+  (add-hook 'haskell-mode-hook 'kakapo-mode)
+  (add-hook 'haskell-mode-hook (lambda ()
+      (setq-local indent-tabs-mode nil)
+      (setq-local tab-width 4)
+      (setq-local evil-shift-width 4)
+      (setq-local kakapo-open-blank-line-search-indentation '(t t)))))
 
 ; Company mode
 (use-package company
