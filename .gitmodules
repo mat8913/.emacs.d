@@ -70,3 +70,7 @@
 	path = lib/kakapo-mode
 	url = https://github.com/mat8913/kakapo-mode
 	ignore = untracked
+[submodule "use-package"]
+	path = lib/use-package
+	url = https://github.com/jwiegley/use-package
+	ignore = untracked

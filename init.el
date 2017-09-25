@@ -2,7 +2,7 @@
 (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
 (require 'borg)
 (borg-initialize)
-(require 'evil-magit)
+(require 'use-package)
 
 (setq make-backup-files nil)
 (tool-bar-mode 0)
@@ -17,25 +17,36 @@
 (load-theme 'solarized-dark)
 
 ; Evil mode
-(evil-mode 1)
-
-(defun evil-keyboard-quit ()
-  "Keyboard quit and force normal state."
-  (interactive)
-  (and evil-mode (evil-force-normal-state))
-  (keyboard-quit))
-
-(define-key evil-normal-state-map   (kbd "C-g") #'evil-keyboard-quit)
-(define-key evil-motion-state-map   (kbd "C-g") #'evil-keyboard-quit)
-(define-key evil-insert-state-map   (kbd "C-g") #'evil-normal-state)
-(define-key evil-insert-state-map   [tab]       #'evil-normal-state)
-(define-key evil-window-map         (kbd "C-g") #'evil-keyboard-quit)
-(define-key evil-operator-state-map (kbd "C-g") #'evil-keyboard-quit)
-
-(define-key evil-normal-state-map ";" 'evil-ex)
+(use-package evil
+  :demand t
+  :bind (:map evil-insert-state-map
+         ([tab] . evil-normal-state)
+         ("C-g" . evil-normal-state)
+         :map evil-normal-state-map
+         (";" . evil-ex)
+         ("C-g" . evil-keyboard-quit)
+         :map evil-motion-state-map
+         ("C-g" . evil-keyboard-quit)
+         :map evil-window-map
+         ("C-g" . evil-keyboard-quit)
+         :map evil-operator-state-map
+         ("C-g" . evil-keyboard-quit))
+  :init
+  (defun evil-keyboard-quit ()
+    "Keyboard quit and force normal state."
+    (interactive)
+    (and evil-mode (evil-force-normal-state))
+    (keyboard-quit))
+  :config
+  (evil-mode 1)
+)
 
 ; Magit
-(global-set-key (kbd "C-x g") 'magit-status)
+(use-package magit
+  :bind ("C-x g" . magit-status))
+
+(use-package evil-magit
+  :demand t)
 
 ; Linum relative
 (linum-relative-global-mode)
@@ -163,25 +174,29 @@
 ))
 
 ; Haskell mode
-(add-hook 'haskell-mode-hook 'intero-mode)
-(add-hook 'haskell-mode-hook 'kakapo-mode)
-(add-hook 'haskell-mode-hook (lambda ()
-    (define-key haskell-mode-map (kbd "<backtab>") nil)
-    (setq-local indent-tabs-mode nil)
-    (setq-local tab-width 4)
-    (setq-local evil-shift-width 4)
-))
+(use-package haskell-mode
+  :bind (:map haskell-mode-map
+         ("<backtab>" . nil))
+  :config
+  (add-hook 'haskell-mode-hook #'intero-mode)
+  (add-hook 'haskell-mode-hook 'kakapo-mode)
+  (add-hook 'haskell-mode-hook (lambda ()
+      (setq-local indent-tabs-mode nil)
+      (setq-local tab-width 4)
+      (setq-local evil-shift-width 4))))
 
 ; Kakapo mode
-(add-hook 'kakapo-mode-hook (lambda ()
-    (define-key evil-normal-state-map "o" (lambda () (interactive) (kakapo-open nil)))
-    (define-key evil-normal-state-map "O" (lambda () (interactive) (kakapo-open t)))
-    (define-key evil-insert-state-map (kbd "RET") 'kakapo-ret-and-indent)
-    (define-key evil-insert-state-map (kbd "DEL") 'kakapo-backspace)
-    (define-key evil-insert-state-map (kbd "<S-backspace>") 'kakapo-upline)
-))
+(use-package kakapo-mode
+  :commands kakapo-open
+  :config
+  (add-hook 'kakapo-mode-hook (lambda ()
+      (define-key evil-normal-state-local-map "o" (lambda () (interactive) (kakapo-open nil)))
+      (define-key evil-normal-state-local-map "O" (lambda () (interactive) (kakapo-open t)))
+      (define-key evil-insert-state-local-map (kbd "RET") 'kakapo-ret-and-indent)
+      (define-key evil-insert-state-local-map (kbd "DEL") 'kakapo-backspace)
+      (define-key evil-insert-state-local-map (kbd "<S-backspace>") 'kakapo-upline))))
 
 ; Company mode
-(add-hook 'company-mode-hook (lambda ()
-    (define-key company-mode-map (kbd "<backtab>") 'company-complete)
-))
+(use-package company
+  :bind (:map company-mode-map
+         ("<backtab>" . company-complete)))
