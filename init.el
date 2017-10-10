@@ -186,6 +186,11 @@
     (setq-local indent-tabs-mode nil)
 ))
 
+; Emacs Lisp mode
+(add-hook 'emacs-lisp-mode-hook (lambda ()
+    (setq-local indent-tabs-mode nil)
+))
+
 ; Kakapo mode
 (use-package kakapo-mode
   :commands kakapo-open
