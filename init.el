@@ -173,6 +173,19 @@
     (c-set-style "linux")
 ))
 
+; C++ mode
+(c-add-style "my-c++-style"
+    '("java"
+        (c-basic-offset . 4)
+        (c-offsets-alist
+            (access-label . -)
+)))
+
+(add-hook 'c++-mode-hook (lambda ()
+    (c-set-style "my-c++-style")
+    (setq-local indent-tabs-mode nil)
+))
+
 ; Kakapo mode
 (use-package kakapo-mode
   :commands kakapo-open
