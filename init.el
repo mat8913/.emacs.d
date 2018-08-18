@@ -178,6 +178,16 @@
     (c-set-style "linux")
 ))
 
+; Smart tabs
+(use-package smart-tabs-mode
+  :init
+  (smart-tabs-insinuate 'c 'c++)
+  :config
+  (add-hook 'smart-tabs-mode-hook (lambda ()
+    (setq-local evil-shift-width tab-width)
+    (setq-local evil-indent-convert-tabs nil)
+)))
+
 ; Emacs Lisp mode
 (add-hook 'emacs-lisp-mode-hook (lambda ()
     (setq-local indent-tabs-mode nil)
